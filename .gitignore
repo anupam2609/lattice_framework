@@ -1,0 +1,30 @@
+# Terraform temporary files and binaries
+resource_deployments/aks-terraform/.terraform/
+.terraform.lock.hcl
+
+# Terraform state files (EXTREMELY SENSITIVE)
+*.tfstate
+*.tfstate.*
+
+# Kubernetes credentials and config
+# This prevents your generated kubeconfig from being pushed
+kubeconfig
+.kube/
+
+# Your local backup directory
+# These files contain full exports of your cluster's secrets and configmaps
+cluster-backups/
+
+# Variable files (may contain secrets if you use them in the future)
+*.tfvars
+*.tfvars.json
+
+# Shell script logs or temporary execution files
+*.log
+.env
+
+
+#virtual environments
+../.venv/
+.idea/
+.venv

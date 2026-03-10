@@ -1,0 +1,22 @@
+project_name: "xpander-ai-dev"
+region: "southindia"
+
+infrastructure_resources:
+  - resource_id: "aks-terraform"
+    type: "aks"
+    enabled: true
+    config:
+      version: "1.33.0"
+
+  - resource_id: "storage-main-terraform"
+    type: "storage"
+    enabled: true
+    depends_on: "aks-terraform"
+    config:
+      account_tier: "Standard"
+
+# Application Layer
+xpander_config:
+  enabled: true
+  depends_on: "aks-terraform"
+  agent_count: 2
